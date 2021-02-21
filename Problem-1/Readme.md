@@ -1,5 +1,7 @@
 Odometry, IMU and GPS - EKF Localizatiion
 
+Download the .bag file and rename it to ekf.bag
+
 1 Run roscore
 
 2 Run rosbag play ekf.bag /imu/data:=/imu_data /warthog_velocity_controller/odom:=/odom
