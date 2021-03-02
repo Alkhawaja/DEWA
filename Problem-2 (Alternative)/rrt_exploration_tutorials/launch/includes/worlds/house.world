@@ -73,13 +73,22 @@
       <shadows>1</shadows>
     </scene>
     <state world_name='GrannyAnnie'>
-      <sim_time>2464 220000000</sim_time>
-      <real_time>89 335394697</real_time>
-      <wall_time>1614656673 476046902</wall_time>
+      <sim_time>2494 200000000</sim_time>
+      <real_time>30 32232010</real_time>
+      <wall_time>1614668878 249814420</wall_time>
       <model name='bookshelf'>
         <pose>-6.62417 3.07498 0 0 -0 3.13796</pose>
         <link name='link'>
           <pose>-6.62417 3.07498 0 0 -0 3.13796</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='grey_wall'>
+        <pose>2 1.41257 0 0 -0 0</pose>
+        <link name='link'>
+          <pose>2 1.41257 1.4 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -95,24 +104,24 @@
         </link>
       </model>
       <model name='robot_1'>
-        <pose>0.000947 0.007268 -0.002123 0.000124 -0.007958 -0.003161</pose>
+        <pose>0.001296 0.009818 -0.002124 0.000188 -0.007979 -0.004095</pose>
         <link name='base_footprint'>
-          <pose>0.000947 0.007268 -0.002123 0.000124 -0.007958 -0.003161</pose>
-          <velocity>5e-06 -6.1e-05 -0.000347 -0.014857 0.000609 -8.2e-05</velocity>
-          <acceleration>0.000203 0.005829 -0.107195 0.049241 0.001462 0.000245</acceleration>
-          <wrench>0.000491 0.014115 -0.259551 0 -0 0</wrench>
+          <pose>0.001296 0.009818 -0.002124 0.000188 -0.007979 -0.004095</pose>
+          <velocity>2.2e-05 0.000142 -7.7e-05 0.004143 -0.000895 -2.6e-05</velocity>
+          <acceleration>-2.4e-05 -0.000449 0.00064 0.001719 0.000367 1.1e-05</acceleration>
+          <wrench>-5.8e-05 -0.001088 0.001549 0 -0 0</wrench>
         </link>
         <link name='wheel_left_link'>
-          <pose>0.001032 0.12225 0.034973 -1.57089 0.035432 -0.003163</pose>
-          <velocity>4.1e-05 0.000577 0.014701 -0.016291 0.001161 -8e-05</velocity>
-          <acceleration>0.00772 -0.15844 6.46948 0.487696 0.019399 0.001571</acceleration>
-          <wrench>7.7e-05 -0.001584 0.064695 0 -0 0</wrench>
+          <pose>0.00146 0.124796 0.035294 -1.57085 0.006823 -0.004094</pose>
+          <velocity>-9e-06 -7.9e-05 0.016622 0.002435 -0.000263 -2.6e-05</velocity>
+          <acceleration>0.001523 -0.00601 0.119373 0.017197 0.004366 7.1e-05</acceleration>
+          <wrench>1.5e-05 -6e-05 0.001194 0 -0 0</wrench>
         </link>
         <link name='wheel_right_link'>
-          <pose>0.000305 -0.107726 0.034741 -1.57097 0.016556 -0.003163</pose>
-          <velocity>3.1e-05 0.00058 0.012141 -0.016688 0.000869 -8.2e-05</velocity>
-          <acceleration>0.005649 -0.174839 0.372655 0.501047 0.016556 0.001401</acceleration>
-          <wrench>5.6e-05 -0.001748 0.003727 0 -0 0</wrench>
+          <pose>0.000532 -0.105179 0.035033 -1.57095 0.000406 -0.004094</pose>
+          <velocity>-2e-05 -5.5e-05 0.01524 0.001516 -0.000581 -2.9e-05</velocity>
+          <acceleration>0.001442 -0.005622 0.127499 0.016118 0.00415 6.7e-05</acceleration>
+          <wrench>1.4e-05 -5.6e-05 0.001275 0 -0 0</wrench>
         </link>
       </model>
     </state>
@@ -816,6 +825,52 @@
         <robotNamespace>/robot_1/</robotNamespace>
       </plugin>
       <pose>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='grey_wall'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 1.4 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>7.5 0.2 2.8</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>7.5 0.2 2.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://grey_wall/materials/scripts</uri>
+              <uri>model://grey_wall/materials/textures</uri>
+              <name>vrc/grey_wall</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose>2 1.41257 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
